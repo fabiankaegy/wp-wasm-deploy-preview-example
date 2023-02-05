@@ -4,7 +4,7 @@ name: Deploy static content to Pages
 on:
   # Runs on pushes targeting the default branch
   pull_request:
-    
+
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -13,6 +13,7 @@ on:
 permissions:
   contents: read
   pages: write
+  pull-requests: write
   id-token: write
 
 # Allow one concurrent deployment
@@ -43,3 +44,5 @@ jobs:
 
       - name: WordPress Instant Preview
         uses: ./
+        with:
+          repo-token: ${{ github.token }}
