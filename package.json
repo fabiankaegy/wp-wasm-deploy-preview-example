@@ -1,0 +1,39 @@
+{
+	"name": "wp-deploy-preview-action",
+	"version": "0.0.1",
+	"description": "Instant PR Previews powered by WordPress running in WASM",
+	"main": "index.js",
+	"scripts": {
+		"build": "microbundle -f cjs --define 'navigator={}' --compress --no-sourcemap --target node src/index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/fabiankaegy/wp-wasm-deploy-preview-example.git"
+	},
+	"author": "Fabian Kägy",
+	"license": "GPL-2.0-or-later",
+	"bugs": {
+		"url": "https://github.com/fabiankaegy/wp-wasm-deploy-preview-example/issues"
+	},
+	"homepage": "https://github.com/fabiankaegy/wp-wasm-deploy-preview-example#readme",
+	"devDependencies": {
+		"@actions/core": "^1.10.0",
+		"@actions/exec": "^1.1.1",
+		"@actions/github": "^5.1.1",
+		"@babel/core": "^7.20.12",
+		"@babel/preset-env": "^7.20.2",
+		"microbundle": "^0.15.1"
+	},
+	"babel": {
+		"presets": [
+			[
+				"@babel/preset-env",
+				{
+					"targets": {
+						"node": "current"
+					}
+				}
+			]
+		]
+	}
+}

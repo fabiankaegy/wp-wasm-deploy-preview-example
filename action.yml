@@ -1,0 +1,14 @@
+name: 'wp-deploy-preview-action'
+description: 'Instant PR Previews powered by WordPress running in WASM'
+author: 'Fabian Kägy'
+branding:
+  icon: 'upload-cloud'
+  color: 'gray-dark'
+inputs:
+  repo-token:
+    description: 'The GITHUB_TOKEN secret'
+    required: false
+    default: ${{ github.token }}
+runs:
+  using: 'node16'
+  main: 'index.js'
