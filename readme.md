@@ -16,10 +16,10 @@ At the same time, it would deploy an instance of the [WordPress Playground](http
 - [ ] Run WordPress Playground on a GitHub Pages hosted static page
 - [ ] Add a comment to any opened PR containing a link to the GitHub Pages site
 - [ ] Updates said comment every time a new commit gets added to the PR
-- [ ] Pass a param with the relevant build information to the GitHub Pages hostes site
-- [ ] WordPress Playground uses CI Build artifacts as basis for it's filesystem
+- [ ] Pass a param with the relevant build information to the GitHub Pages hosted site
+- [ ] WordPress Playground uses CI Build artifacts as the basis for its filesystem
 
 ### Maybe in the future
 
 - [ ] Some kind of way to pull a Database dump from the live site without any personal identifiable information in as the initial DB of the demo site
-- [ ] Some was to allow PR creators to build out demo content showcasing new elements on the page / linking directly to a page on the WASM site that showcases those changes
+- [ ] Some way to allow PR creators to build out demo content showcasing new elements on the page / linking directly to a page on the WASM site that showcases those changes
