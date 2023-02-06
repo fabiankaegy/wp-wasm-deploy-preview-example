@@ -45,4 +45,5 @@ jobs:
       - name: WordPress Instant Preview
         uses: ./
         with:
+          deploy-url: "${{ steps.deployment.outputs.page_url }}"
           repo-token: "${{ secrets.GITHUB_TOKEN }}"

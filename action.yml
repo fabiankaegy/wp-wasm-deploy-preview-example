@@ -9,6 +9,10 @@ inputs:
     description: 'The GITHUB_TOKEN secret'
     required: false
     default: ${{ github.token }}
+  deploy-url:
+    description: 'The Deployment Url'
+    required: true
+    default: ${{ steps.deployment.outputs.page_url }}
 runs:
   using: 'node16'
   main: 'index.js'

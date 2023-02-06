@@ -33,7 +33,7 @@ async function run(octokit, context) {
 		);
 	}
 
-	const deploymentUrl = `INSERT URL HERE`;
+	const deploymentUrl = getInput('deploy-url');
 	const currentTimestamp = new Date().toISOString();
 
 	const markdownTable = `
