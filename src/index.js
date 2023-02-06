@@ -37,11 +37,11 @@ async function run(octokit, context) {
 	const currentTimestamp = new Date().toISOString();
 
 	const markdownTable = `
-	**The latest updates on your projects.**
+**The latest updates on your projects.**
 
-	| Preview | Updated |
-	| --- | --- |
-	| [${deploymentUrl}](${deploymentUrl}) | ${currentTimestamp} |
+| Preview | Updated |
+| --- | --- |
+| [${deploymentUrl}](${deploymentUrl}) | ${currentTimestamp} |
 	`;
 
 	const commentInfo = {
