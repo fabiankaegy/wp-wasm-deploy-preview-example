@@ -5,7 +5,6 @@ on:
   # Runs on pushes targeting the default branch
   pull_request:
 
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -31,13 +30,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload the public folder
           path: './public'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
@@ -45,5 +47,5 @@ jobs:
       - name: WordPress Instant Preview
         uses: ./
         with:
-          deploy-url: "${{ steps.deployment.outputs.page_url }}"
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          deploy-url: ${{ steps.deployment.outputs.page_url }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
