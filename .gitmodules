@@ -1,0 +1,3 @@
+[submodule "wordpress-playground"]
+	path = wordpress-playground
+	url = https://github.com/WordPress/wordpress-playground
