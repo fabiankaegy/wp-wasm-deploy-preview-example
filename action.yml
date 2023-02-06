@@ -12,7 +12,6 @@ inputs:
   deploy-url:
     description: 'The Deployment Url'
     required: true
-    default: ${{ steps.deployment.outputs.page_url }}
 runs:
   using: 'node16'
   main: 'index.js'
