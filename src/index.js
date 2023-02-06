@@ -33,15 +33,15 @@ async function run(octokit, context) {
 		);
 	}
 
-	const deploymentUrl = `INSERT URL HERE`;
+	const deploymentUrl = getInput('deploy-url');
 	const currentTimestamp = new Date().toISOString();
 
 	const markdownTable = `
-	**The latest updates on your projects.**
+**The latest updates on your projects.**
 
-	| Preview | Updated |
-	| --- | --- |
-	| [${deploymentUrl}](${deploymentUrl}) | ${currentTimestamp} |
+| Preview | Updated |
+| --- | --- |
+| [${deploymentUrl}](${deploymentUrl}) | ${currentTimestamp} |
 	`;
 
 	const commentInfo = {
@@ -59,7 +59,7 @@ async function run(octokit, context) {
 	startGroup(`Updating stats PR comment`);
 	let commentId;
 	try {
-		const comments = (await octokit.issues.listComments(commentInfo)).data;
+		const comments = (await octokit.rest.issues.listComments(commentInfo)).data;
 		for (let i = comments.length; i--;) {
 			const c = comments[i];
 			if (c.user.type === 'Bot' && /<sub>[\s\n]*(wp-instant-preview-action)/.test(c.body)) {
@@ -74,7 +74,7 @@ async function run(octokit, context) {
 	if (commentId) {
 		console.log(`Updating previous comment #${commentId}`);
 		try {
-			await octokit.issues.updateComment({
+			await octokit.rest.issues.updateComment({
 				...context.repo,
 				comment_id: commentId,
 				body: comment.body
@@ -89,13 +89,13 @@ async function run(octokit, context) {
 	if (!commentId) {
 		console.log('Creating new comment');
 		try {
-			await octokit.issues.createComment(comment);
+			await octokit.rest.issues.createComment(comment);
 		} catch (e) {
 			console.log(`Error creating comment: ${e.message}`);
 			console.log(`Submitting a PR review comment instead...`);
 			try {
 				const issue = context.issue;
-				await octokit.pulls.createReview({
+				await octokit.rest.pulls.createReview({
 					owner: issue.owner,
 					repo: issue.repo,
 					pull_number: issue.number,
