@@ -13,9 +13,9 @@ At the same time, it would deploy an instance of the [WordPress Playground](http
 
 ## Features
 
-- [ ] Run WordPress Playground on a GitHub Pages hosted static page
-- [ ] Add a comment to any opened PR containing a link to the GitHub Pages site
-- [ ] Updates said comment every time a new commit gets added to the PR
+- [x] Run WordPress Playground on a GitHub Pages hosted static page
+- [x] Add a comment to any opened PR containing a link to the GitHub Pages site
+- [x] Updates said comment every time a new commit gets added to the PR
 - [ ] Pass a param with the relevant build information to the GitHub Pages hosted site
 - [ ] WordPress Playground uses CI Build artifacts as the basis for its filesystem
 
